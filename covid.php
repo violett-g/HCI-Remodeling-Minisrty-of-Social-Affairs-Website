@@ -13,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Contact</title>
+  <title>Covid</title>
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet"> -->
@@ -67,10 +67,8 @@
             <!-- Button to open the modal login form -->
             <?php if(isset($_SESSION['loged'])){ ?>
                 <button name="logout" class="logbutton"><a href="logout.php"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>Αποσύνδεση<a></button>
-                <button name="settings" class="logbutton"><a href="settings.php">
-                <span style="color:#0e1577" >
-                    <i class="fa fa-user-cog"></i><a>
-                    </span>
+                <button name="settings" class="logbutton"><a style="color:#0e1577" href="settings.php">
+                    <i class="fa fa-user-cog" style="color:#0e1577"></i>Προφίλ</a>
                 </button>
             <?php }else{ ?>
                 <button class="logbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i>Σύνδεση</button>

@@ -11992,7 +11992,7 @@ img {vertical-align: middle;}
     cursor: pointer;
     border-radius: 0;
     font-size: 15px;
-    width: 10rem;
+    width: 100rem;
     display: flex;
     flex-direction: row;
     /* justify-content: flex-end; */
@@ -12047,7 +12047,7 @@ button {
 }
 
 .settings-button {
-  display: inline-block;
+    display: inline-block;
     background-color: #fff;
     color: #0e1577;
     position: relative;
@@ -12057,6 +12057,7 @@ button {
     cursor: pointer;
     font-size: 15px;
     margin-right: 10px;
+    width: 100px;
 }
 
 button:hover {

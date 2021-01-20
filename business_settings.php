@@ -15,17 +15,12 @@
 
   <title>business-settings</title>
 
-  <!-- Bootstrap core CSS -->
-  <!-- <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet"> -->
-
   <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.css" rel="stylesheet">
 
   <!--Icons for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-  <!-- Icons for this template
-  <link href="vendor/bootstrap/css/all.min.css" rel="stylesheet"> -->
 
 </head>
 

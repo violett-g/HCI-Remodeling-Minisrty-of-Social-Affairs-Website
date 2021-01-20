@@ -58,10 +58,8 @@ require 'config.php';
                     <!-- Button to open the modal login form -->
                     <?php if (isset($_SESSION['loged'])) { ?>
                         <button name="logout" class="logbutton"><a href="logout.php"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>Αποσύνδεση<a></button>
-                        <button name="settings" class="logbutton"><a href="settings.php">
-                                <span style="color:#0e1577">
-                                    <i class="fa fa-user-cog"></i><a>
-                                </span>
+                        <button name="settings" class="logbutton"><a style="color:#0e1577" href="settings.php">
+                            <i class="fa fa-user-cog" style="color:#0e1577"></i>Προφίλ</a>
                         </button>
                     <?php } else { ?>
                         <button class="logbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i>Σύνδεση</button>
@@ -202,7 +200,7 @@ require 'config.php';
         </nav>
 
         <!--breadcrumbs-->
-        <div style="margin-top: 5px; background-color:transparent">
+        <!-- <div style="margin-top: 5px; background-color:transparent">
             <ul class="breadcrumbs">
                 <li class="breadcrumbTitle">
                     <a href="index.php" class="breadcrumbLink"><i class="fas fa-home"></i></a>
@@ -211,7 +209,26 @@ require 'config.php';
                     <a href="covid.php" class="breadcrumbLink breadcrumbLinkActive">Covid-19</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
+    <div style="margin-top: 5px; background-color:transparent">
+      <ul class="breadcrumbs">
+          <li class="breadcrumbTitle">
+            <a href="index.php" class="breadcrumbLink"><i class="fas fa-home"></i></a>
+          </li> 
+          <li class="breadcrumbTitle">
+            <a href="#" class="breadcrumbLink">Εργαζόμενοι</a>
+          </li>
+          <li class="breadcrumbTitle">
+            <a href="#" class="breadcrumbLink">Παροχές</a>
+          </li>
+          <li class="breadcrumbTitle">
+            <a href="#" class="breadcrumbLink">Παροχές σε περίοδο πανδημίας</a>
+          </li>
+          <li class="breadcrumbTitle">
+            <a href="#" class="breadcrumbLink breadcrumbLinkActive">Τηλεργασία</a>
+          </li>
+      </ul> 
+    </div>
 
     </div>
     <!--undermainbar-->

@@ -11838,7 +11838,7 @@ body {
     cursor: pointer;
     border-radius: 0;
     font-size: 15px;
-    width: 10rem;
+    width: 100rem;
     display: flex;
     flex-direction: row;
     /* justify-content: flex-end; */
@@ -11902,7 +11902,8 @@ button {
     border-color: #fff;
     cursor: pointer;
     font-size: 15px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    width: 100px;
 }
 
 button:hover {

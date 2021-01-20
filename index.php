@@ -62,10 +62,15 @@
           <?php if(isset($_SESSION['loged'])){ ?>
               <button name="logout" class="logbutton"><a href="logout.php"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>Αποσύνδεση<a></button>
               <button name="settings" class="settings-button"><a href="settings.php">
-              <span style="color:#0e1577" >
-                  <i class="fa fa-user-cog"></i><a>
-                  </span>
+              <!-- <span style="color:#0e1577" > -->
+                  <i class="fa fa-user-cog"style="color:#0e1577" ></i>Προφίλ<a>
+                  <!-- </span> -->
               </button>
+              <!-- <button name="settings" class="settings-button"><a href="settings.php">Προφίλ -->
+              <!-- <span style="color:#0e1577" >
+                  <i class="fa fa-user-cog"></i><a>
+                  </span> -->
+              <!-- </button> -->
           <?php }else{ ?>
               <button class="logbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i>Σύνδεση</button>
           <?php } ?>
@@ -212,11 +217,11 @@
         <div class="fr-search-title">  Επίκαιρες αναζητήσεις... </div>
     
         <ul>
-        <li><a href="news.asp">Δήλωση εργοδοτών για την αντιμετώπιση του COVID-19</a></li>
-        <li><a href="contact.asp">Εργασία σε περίοδο πανδημίας(Τηλε-εργασία,Αναστολή Σύμβασης)</a></li>
-        <li><a href="about.asp">Οδηγίες και μέτρα πρόληψης για τους εργαζόμενους</a></li>
-        <li><a href="about.asp">Παροχές σε περίοδο πανδημίας (Άδειες,Επιδόματα)</a></li>
-        <li><a href="contact.php">Οδηγίες και μέτρα πρόληψης για τον εργοδότη</a></li>
+        <li><a href="#">Δήλωση εργοδοτών για την αντιμετώπιση του COVID-19</a></li>
+        <li><a href="tileergasia.php">Εργασία σε περίοδο πανδημίας(Τηλε-εργασία,Αναστολή Σύμβασης)</a></li>
+        <li><a href="odigies-pros-ergazomenous.php">Οδηγίες και μέτρα πρόληψης για τους εργαζόμενους</a></li>
+        <li><a href="adeia-eidikou-skopou.php">Παροχές σε περίοδο πανδημίας (Άδειες,Επιδόματα)</a></li>
+        <li><a href="#">Οδηγίες και μέτρα πρόληψης για τον εργοδότη</a></li>
         <!-- <li><a href="about.asp">Oικονομική ενίσχυση για τους εποχικά ανέργους</a></li> -->
         </ul>
     </div> 
