@@ -123,6 +123,7 @@ address {
     margin-bottom: 1rem;
     font-style: normal;
     line-height: inherit;
+    font-size: 20px;
 }
 
 ol,
@@ -12300,7 +12301,7 @@ body {
 
 .box {
     width: 90%;
-    height: 400px;
+    height: 600px;
     overflow-y: scroll;
     border: 3px;
     margin-left: auto;
@@ -12511,7 +12512,8 @@ body {
     display: flex; 
     flex-wrap: wrap ;
     justify-content: center;
-    gap: 10px;
+    gap: 5%;
+    /*gap:10%; for >24"*/
     overflow-wrap: break-word;
 }
 .covidInfo-template{
@@ -12563,11 +12565,12 @@ body {
     flex-direction: row;
     gap: 20px;
     align-items: stretch;
+    height:600px;
 
 }
 
 .info{
-    max-height: 80%;
+    max-height: 100%;
     max-width: 1500px;
 }
 
@@ -12575,7 +12578,7 @@ body {
 
 .sidenav {
     min-height: 100%;
-    width: 400px;
+    width: 300px;
     /* max-width: 8000px; */
     /* position: fixed; */
     /* z-index: 1; */
@@ -12583,13 +12586,13 @@ body {
     left: 0; */
     background-color: #0e1577;
     /* overflow-x: hidden; */
-    padding-top: 20px;
+    padding-top: 100px;
     padding-left: 20px;
     /* flex-basis: 100%; */
   }
   
   .sidenav a {
-    padding: 6px 8px 6px 16px;
+    padding: 26px 8px 6px 16px;
     text-decoration: none;
     font-size: 16.5px;
     color: #fff;

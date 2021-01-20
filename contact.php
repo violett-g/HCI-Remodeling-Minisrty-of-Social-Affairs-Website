@@ -254,7 +254,7 @@
                 <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12579.43641904405!2d23.7310797!3d37.9804173!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6db1fc0cbb58a00a!2sMinistry%20of%20Labour%20and%20Social%20Affairs!5e0!3m2!1sen!2sgr!4v1610060783009!5m2!1sen!2sgr" 
                 width="600" 
-                eight="450" 
+                height="350" 
                 frameborder="0" 
                 style="border:0;" 
                 allowfullscreen="" 
@@ -267,7 +267,7 @@
         <!-- /.row -->
   </div>
   <!-- /.container -->
-    <div class="container">
+    <div class="container" style="font-size:20px;">
         <!-- <div class="row"> -->
             <b>Ώρες εξυπηρέτησης κοινού: <p> Καθημερινά <time>9:00</time> έως  <time>13:00</time>.</b></p>
             <a href="reservation.php" class="btn btn-primary btn-icon-split">
@@ -325,12 +325,6 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   
-  
-  
-  
-  
-  <!--________________________________VIOLETTA(JavaScript)_________________________*/
-       login form -->
   <script>
     // login
     var modal = document.getElementById('id01');
@@ -352,6 +346,7 @@
     <?php
     }
     ?>
+    //for covid banner underneth
     $('.banner-dismiss').click(function() {
       $('.covid-banner').css('display', 'none');
       localStorage.bannerClosed = 'true';

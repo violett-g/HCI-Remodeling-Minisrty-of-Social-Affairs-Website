@@ -346,7 +346,7 @@ require 'config.php';
 
 
   <!-- Footer -->
-  <footer class="foot-container" style="margin-top: 22%;">
+  <footer class="foot-container" style="margin-top: 18%;">
     <div class="foot-container">
       <div class="child1">
         <span style="font-size: 48px; color: #3b5998">
@@ -394,7 +394,7 @@ require 'config.php';
     <?php
     }
     ?>
-    
+
     //acordeon script
     var acc = document.getElementsByClassName("accordion-custom");
     var i;

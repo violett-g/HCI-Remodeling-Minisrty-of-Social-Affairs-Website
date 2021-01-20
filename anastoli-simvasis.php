@@ -70,7 +70,7 @@ require 'config.php';
                     class="close" title="Close Modal">&times;</span>
             
                     <!-- Modal Content -->
-                    <form class="modal-content animate" action = "contact.php" method="post">
+                    <form class="modal-content animate" action = "anastoli-simvasis.php" method="post">
                     <div class="container">
                         <input name="username" type="text" placeholder="Όνομα Χρήστη " name="uname" required>
                         <input name="password" type="password" placeholder="Κωδικός Πρόσβασης " name="psw" required>
@@ -94,7 +94,7 @@ require 'config.php';
                         echo '<script type="text/javascript">alert("' . $msg . '")</script>';
                     }
                     function phpConfAlert() {
-                        echo "<script> window.location.assign('contact.php'); </script>";
+                        echo "<script> window.location.assign('anastoli-simvasis.php'); </script>";
                     }
                     if(isset($_POST['submit_btn'])){
                         $username = $_POST['username'];
@@ -116,7 +116,7 @@ require 'config.php';
                             $_SESSION['email'] = $row[5];
                             $_SESSION['address'] = $row[7];
                             $_SESSION['phone'] = $row[8];
-                            header('Location:contact.php');
+                            header('Location:anastoli-simvasis.php');
                             }
                             phpConfAlert();
                         }
@@ -227,6 +227,9 @@ require 'config.php';
                 <a href="tileergasia.php">Τηλεργασία</a>
                 <a  style=" font-size: 18px; font-weight: 1000;"  href="anastoli-simvasis.php">Αναστολή Σύμβασης</a>
                 <a href="adeia-eidikou-skopou.php">Άδεια ειδικού σκοπού</a>
+                <a href="#">Επιδόματα </a>
+                <a href="#">Προγράμματα </a>
+
             </div>
                 
             </ul>
@@ -255,20 +258,20 @@ require 'config.php';
 
 
         </div> <!--bar-info-->
-        <div style="padding: 30px 90px">
+        <!-- <div style="padding: 30px 90px">
         <button style=" width: 30%; float:right; margin-left: auto; margin-right:auto; margin-top:30px" 
             name="submit_btn" type="submit" class="btn btn-primary btn-user btn-block">
             Υποβολή Αίτησης<a href="login.php"></a></button>
-        <!-- <a href="login.php" class="btn btn-primary btn-lg float-right">
+        <a href="login.php" class="btn btn-primary btn-lg float-right">
                 Υποβολή Αίτησης - να το βγαλουμε;
-            </a> -->
-        </div>
+            </a> 
+        </div> -->
 
 
     </div>
 
      <!-- Footer -->
-  <footer class="foot-container" >
+  <footer class="foot-container" style="margin-top: 8%;">
     <div class="foot-container">
       <div class="child1"> 
         <span style="font-size: 48px; color: #3b5998">

@@ -72,7 +72,7 @@ require 'config.php';
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
                         <!-- Modal Content -->
-                        <form class="modal-content animate" action="contact.php" method="post">
+                        <form class="modal-content animate" action="adeia-eidikou-skopou.php" method="post">
                             <div class="container">
                                 <input name="username" type="text" placeholder="Όνομα Χρήστη " name="uname" required>
                                 <input name="password" type="password" placeholder="Κωδικός Πρόσβασης " name="psw" required>
@@ -98,7 +98,7 @@ require 'config.php';
                         }
                         function phpConfAlert()
                         {
-                            echo "<script> window.location.assign('contact.php'); </script>";
+                            echo "<script> window.location.assign('adeia-eidikou-skopou.php'); </script>";
                         }
                         if (isset($_POST['submit_btn'])) {
                             $username = $_POST['username'];
@@ -120,7 +120,7 @@ require 'config.php';
                                     $_SESSION['email'] = $row[5];
                                     $_SESSION['address'] = $row[7];
                                     $_SESSION['phone'] = $row[8];
-                                    header('Location:contact.php');
+                                    header('Location:adeia-eidikou-skopou.php');
                                 }
                                 phpConfAlert();
                             } else {
@@ -230,7 +230,9 @@ require 'config.php';
             <div class="sidenav">
                 <a href="tileergasia.php">Τηλεργασία</a>
                 <a href="anastoli-simvasis.php">Αναστολή Σύμβασης</a>
-                <a style=" font-size: 18px; font-weight: 1000;" href="adeia-eidikou-skopou">Άδεια ειδικού σκοπού</a>
+                <a style=" font-size: 18px; font-weight: 1000;" href="adeia-eidikou-skopou.php">Άδεια ειδικού σκοπού</a>
+                <a href="#">Επιδόματα </a>
+                <a href="#">Προγράμματα </a>
             </div>
 
             </ul>
@@ -272,14 +274,14 @@ require 'config.php';
         </div>
         <div style="padding: 30px 90px">
         <?php if(isset($_SESSION['loged'])){ ?>
-        <button style=" width: 30%; float:right; margin-left: auto; margin-right:auto; margin-top:30px" 
-            name="submit_btn" type="submit" class="btn btn-primary btn-user btn-block">
-            Υποβολή Αίτησης<a href="aitisi-adeias-eidikou-skopou.php"></a></button>
-        </div>
+            <a href="aitisi-adeias-eidikou-skopou.php"> <button style=" width: 30%; float:right; margin-left: auto; margin-right:auto; margin-top:30px" 
+                name="submit_btn" type="submit" class="btn btn-primary btn-user btn-block">
+                Υποβολή Αίτησης</button></a>
+            </div>
         <?php }else{ ?>
-            <button style=" width: 30%; float:right; margin-left: auto; margin-right:auto; margin-top:30px" 
+            <a href="login.php" > <button style=" width: 30%; float:right; margin-left: auto; margin-right:auto; margin-top:30px" 
             name="submit_btn" type="submit" class="btn btn-primary btn-user btn-block">
-            Υποβολή Αίτησης<a href="login.php"></a></button>
+            Υποβολή Αίτησης</button></a>
         </div>
 
         <?php } ?>
@@ -289,7 +291,7 @@ require 'config.php';
     </div>
 
     <!-- Footer -->
-    <footer class="foot-container">
+    <footer class="foot-container" style="margin-top: 8%;">
         <div class="foot-container">
             <div class="child1">
                 <span style="font-size: 48px; color: #3b5998">

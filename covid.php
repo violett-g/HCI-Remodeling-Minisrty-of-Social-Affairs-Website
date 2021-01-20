@@ -261,13 +261,13 @@
           <ul class="info-list">
             <li><a class="covidInfo-link" href="#">Δήλωση εργαζομένων για <br>την αντιμετώπιση του COVID-19</a></li>
             <br>
-            <li><a class="covidInfo-link" href="tileergasia.php">Εργασία σε περίοδο πανδημίας</a></li>
+            <li><a class="covidInfo-link" href="tileergasia.php">Εργασία σε περίοδο πανδημίας<br>(Τηλε-εργασία,Αναστολή Σύμβασης)</a></li>
             <br>
             <li><a class="covidInfo-link" href="odigies-pros-ergazomenous.php">Οδηγίες και μέτρα πρόληψης για τους <br> εργαζόμενους (εντός και έκτος χώρου εργασίας) </a></li>
             <br>
             <li><a class="covidInfo-link" href="#">Μετακίνηση εργαζόμενων σε περιόδους Lockdown</a></li>
             <br>
-            <li><a class="covidInfo-link" href="odigies-pros-ergazomenous.php">Παροχές σε περίοδο πανδημίας</a></li>
+            <li><a class="covidInfo-link" href="adeia-eidikou-skopou.php">Άδεια ειδικού σκοπού</a></li>
 
           </ul>
         </div>
@@ -288,7 +288,6 @@
 
           </ul>
         </div>
-
         <div covidInfo-template>
           <div class="covidInfo-title">  Πρόνοια  </div>        
           <ul>
@@ -380,25 +379,24 @@
       }
     }
 
+    //for under-bar
+    $("#under-bar").hide();
+    <?php
+    if(isset($_SESSION['loged'])){?>
+      $("#under-bar").show();
+    <?php
+    }
+    else{?>
+      $("#under-bar").hide();
+    <?php
+    }
+    ?>
 
-// <!--FOR COVID BANNER UNDERNETH ON C-->
-// $("#under-bar").hide();
-// <?php
-// if(isset($_SESSION['loged'])){?>
-//   $("#under-bar").show();
-// <?php
-// }
-// else{?>
-//   $("#under-bar").hide();
-// <?php
-// }
-// ?>
-
-//     $('.banner-dismiss').click(function() {
-//       $('.covid-banner').css('display', 'none');
-//       localStorage.bannerClosed = 'true';
-//     });
-    
+    $('.banner-dismiss').click(function() {
+      $('.covid-banner').css('display', 'none');
+      localStorage.bannerClosed = 'true';
+    });
+        
 </script>
 
 </body>

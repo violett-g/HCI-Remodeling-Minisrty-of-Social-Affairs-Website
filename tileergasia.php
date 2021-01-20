@@ -71,7 +71,7 @@ require 'config.php';
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
                         <!-- Modal Content -->
-                        <form class="modal-content animate" action="contact.php" method="post">
+                        <form class="modal-content animate" action="tilergasia.php" method="post">
                             <div class="container">
                                 <input name="username" type="text" placeholder="Όνομα Χρήστη " name="uname" required>
                                 <input name="password" type="password" placeholder="Κωδικός Πρόσβασης " name="psw" required>
@@ -97,7 +97,7 @@ require 'config.php';
                         }
                         function phpConfAlert()
                         {
-                            echo "<script> window.location.assign('contact.php'); </script>";
+                            echo "<script> window.location.assign('tilergasia.php'); </script>";
                         }
                         if (isset($_POST['submit_btn'])) {
                             $username = $_POST['username'];
@@ -119,7 +119,7 @@ require 'config.php';
                                     $_SESSION['email'] = $row[5];
                                     $_SESSION['address'] = $row[7];
                                     $_SESSION['phone'] = $row[8];
-                                    header('Location:contact.php');
+                                    header('Location:tilergasia.php');
                                 }
                                 phpConfAlert();
                             } else {
@@ -230,12 +230,14 @@ require 'config.php';
                 <a style=" font-size: 18px; font-weight: 1000;" href="tileergasia.php">Τηλεργασία</a>
                 <a href="anastoli-simvasis.php">Αναστολή Σύμβασης</a>
                 <a href="adeia-eidikou-skopou.php">Άδεια ειδικού σκοπού</a>
+                <a href="#">Επιδόματα </a>
+                <a href="#">Προγράμματα </a>
             </div>
 
             </ul>
             <!-- </div> -->
 
-            <div class="info" style="margin-bottom: 70px;">
+            <div class="info">
 
                 <div class="container-fluid">
 
@@ -291,7 +293,7 @@ require 'config.php';
     </div>
 
     <!-- Footer -->
-    <footer class="foot-container" style="margin-top: 20px; margin-bottom: 0px" >
+    <footer class="foot-container" style="margin-top: 8%;" >
         <div class="foot-container">
             <div class="child1">
                 <span style="font-size: 48px; color: #3b5998">

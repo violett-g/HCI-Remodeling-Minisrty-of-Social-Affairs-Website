@@ -225,20 +225,20 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <script>
-        var acc = document.getElementsByClassName("accordion-custom");
-        var i;
+      var acc = document.getElementsByClassName("accordion-custom");
+      var i;
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+          } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
     </script>
 
 

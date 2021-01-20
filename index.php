@@ -213,11 +213,11 @@
     
         <ul>
         <li><a href="news.asp">Δήλωση εργοδοτών για την αντιμετώπιση του COVID-19</a></li>
-        <li><a href="contact.asp">Εργασία σε περίοδο πανδημίας</a></li>
+        <li><a href="contact.asp">Εργασία σε περίοδο πανδημίας(Τηλε-εργασία,Αναστολή Σύμβασης)</a></li>
         <li><a href="about.asp">Οδηγίες και μέτρα πρόληψης για τους εργαζόμενους</a></li>
-        <li><a href="about.asp">Παροχές σε περίοδο πανδημίας</a></li>
+        <li><a href="about.asp">Παροχές σε περίοδο πανδημίας (Άδειες,Επιδόματα)</a></li>
         <li><a href="contact.php">Οδηγίες και μέτρα πρόληψης για τον εργοδότη</a></li>
-        <li><a href="about.asp">Oικονομική ενίσχυση για τους εποχικά ανέργους</a></li>
+        <!-- <li><a href="about.asp">Oικονομική ενίσχυση για τους εποχικά ανέργους</a></li> -->
         </ul>
     </div> 
         
@@ -363,14 +363,6 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  
-  
-  
-  
-  
-  <!--________________________________VIOLETTA(JavaScript)_________________________*/
-       login form -->
   <script>
     // Get the modal
     var modal = document.getElementById('id01');
@@ -384,24 +376,24 @@
 
 
 
-// <!--FOR COVID BANNER UNDERNETH ON C-->
+    // <!--FOR  bar UNDERNETH -->
 
-// $("#under-bar").hide();
-// <?php
-// if(isset($_SESSION['loged'])){?>
-//   $("#under-bar").show();
-// <?php
-// }
-// else{?>
-//   $("#under-bar").hide();
-// <?php
-// }
-// ?>
-//     $('.banner-dismiss').click(function() {
-//       $('.covid-banner').css('display', 'none');
-//       localStorage.bannerClosed = 'true';
-//     });  
-    
+    $("#under-bar").hide();
+    <?php
+    if(isset($_SESSION['loged'])){?>
+      $("#under-bar").show();
+    <?php
+    }
+    else{?>
+      $("#under-bar").hide();
+    <?php
+    }
+    ?>
+    $('.banner-dismiss').click(function() {
+      $('.covid-banner').css('display', 'none');
+      localStorage.bannerClosed = 'true';
+    });  
+
     // carusel
  
     var slideIndex = 1;
