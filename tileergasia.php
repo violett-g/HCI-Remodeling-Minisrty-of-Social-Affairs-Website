@@ -71,7 +71,7 @@ require 'config.php';
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
                         <!-- Modal Content -->
-                        <form class="modal-content animate" action="tilergasia.php" method="post">
+                        <form class="modal-content animate" action="tileergasia.php" method="post">
                             <div class="container">
                                 <input name="username" type="text" placeholder="Όνομα Χρήστη " name="uname" required>
                                 <input name="password" type="password" placeholder="Κωδικός Πρόσβασης " name="psw" required>
@@ -97,7 +97,7 @@ require 'config.php';
                         }
                         function phpConfAlert()
                         {
-                            echo "<script> window.location.assign('tilergasia.php'); </script>";
+                            echo "<script> window.location.assign('tileergasia.php'); </script>";
                         }
                         if (isset($_POST['submit_btn'])) {
                             $username = $_POST['username'];
@@ -119,7 +119,7 @@ require 'config.php';
                                     $_SESSION['email'] = $row[5];
                                     $_SESSION['address'] = $row[7];
                                     $_SESSION['phone'] = $row[8];
-                                    header('Location:tilergasia.php');
+                                    header('Location:tileergasia.php');
                                 }
                                 phpConfAlert();
                             } else {
@@ -318,28 +318,40 @@ require 'config.php';
         </div>
         <!-- /.container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
 
     <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+        //for under-bar
         $("#under-bar").hide();
         <?php
-        if (isset($_SESSION['loged'])) { ?>
-            $("#under-bar").show();
+        if(isset($_SESSION['loged'])){?>
+        $("#under-bar").show();
         <?php
-        } else { ?>
-            $("#under-bar").hide();
+        }
+        else{?>
+        $("#under-bar").hide();
         <?php
         }
         ?>
+
+        $('.banner-dismiss').click(function() {
+        $('.covid-banner').css('display', 'none');
+        localStorage.bannerClosed = 'true';
+        });
+            
     </script>
 
 </body>

@@ -317,28 +317,41 @@ require 'config.php';
         <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+  <script>
+    // Get the modal
+    var modal = document.getElementById('id01');
 
-    <script>
-        $("#under-bar").hide();
-        <?php
-        if (isset($_SESSION['loged'])) { ?>
-            $("#under-bar").show();
-        <?php
-        } else { ?>
-            $("#under-bar").hide();
-        <?php
-        }
-        ?>
-    </script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    //for under-bar
+    $("#under-bar").hide();
+    <?php
+    if(isset($_SESSION['loged'])){?>
+      $("#under-bar").show();
+    <?php
+    }
+    else{?>
+      $("#under-bar").hide();
+    <?php
+    }
+    ?>
+
+    $('.banner-dismiss').click(function() {
+      $('.covid-banner').css('display', 'none');
+      localStorage.bannerClosed = 'true';
+    });
+        
+</script>
 
 </body>
 

@@ -69,7 +69,7 @@ require 'config.php';
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
             <!-- Modal Content -->
-            <form class="modal-content animate" action="contact.php" method="post">
+            <form class="modal-content animate" action="odigies-pros-ergazomenous.php" method="post">
               <div class="container">
                 <input name="username" type="text" placeholder="Όνομα Χρήστη " name="uname" required>
                 <input name="password" type="password" placeholder="Κωδικός Πρόσβασης " name="psw" required>
@@ -95,7 +95,7 @@ require 'config.php';
             }
             function phpConfAlert()
             {
-              echo "<script> window.location.assign('contact.php'); </script>";
+              echo "<script> window.location.assign('odigies-pros-ergazomenous.php'); </script>";
             }
             if (isset($_POST['submit_btn'])) {
               $username = $_POST['username'];
@@ -117,7 +117,7 @@ require 'config.php';
                   $_SESSION['email'] = $row[5];
                   $_SESSION['address'] = $row[7];
                   $_SESSION['phone'] = $row[8];
-                  header('Location:contact.php');
+                  header('Location:odigies-pros-ergazomenous.php');
                 }
                 phpConfAlert();
               } else {
@@ -376,12 +376,6 @@ require 'config.php';
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
 
   <script>
     $("#under-bar").hide();

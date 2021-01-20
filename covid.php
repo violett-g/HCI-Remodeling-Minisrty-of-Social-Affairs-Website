@@ -361,13 +361,7 @@
   <script src="vendor/jquery/jquery.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  
-  
-  
-  
-  
-  <!--________________________________VIOLETTA(JavaScript)_________________________*/
-       login form -->
+
   <script>
     // Get the modal
     var modal = document.getElementById('id01');
