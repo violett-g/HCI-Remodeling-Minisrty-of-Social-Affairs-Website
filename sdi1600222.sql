@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 20, 2021 at 11:25 AM
+-- Generation Time: Jan 20, 2021 at 10:45 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -41,7 +41,31 @@ CREATE TABLE `business` (
 --
 
 INSERT INTO `business` (`business_name`, `business_afm`, `employer_afm`, `business_address`, `business_email`, `business_phone`) VALUES
-('Black Bean O.E', '963852741', '123456789', 'Ξενίας 23', 'bb@gmail.com', '');
+('Black Bean O.E', '963852741', '123456789', 'Ξενίας 24', 'bb@gmail.com ', '6943075068');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `employee_afm` varchar(200) DEFAULT NULL,
+  `employee_name` varchar(200) DEFAULT NULL,
+  `employee_surname` varchar(200) DEFAULT NULL,
+  `business_afm` varchar(200) DEFAULT NULL,
+  `type` varchar(200) DEFAULT NULL,
+  `start_date` varchar(200) DEFAULT NULL,
+  `end_date` varchar(200) DEFAULT NULL,
+  `kids` int(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`employee_afm`, `employee_name`, `employee_surname`, `business_afm`, `type`, `start_date`, `end_date`, `kids`) VALUES
+('456951753', 'Οδυσσέας', 'Γαρμπής', '963852741', 'ΑΔΕΙΑ ΕΙΔΙΚΗΣ ΚΑΤΑΣΤΑΣΗΣ', '2021-01-12', '2021-01-28', 1);
 
 -- --------------------------------------------------------
 

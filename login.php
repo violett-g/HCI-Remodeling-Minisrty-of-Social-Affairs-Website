@@ -53,11 +53,11 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Καλώς ήλθατε πίσω!</h1>
                                     </div>
-                                    <form class="user" action = "login.php" method="post">
+                                    <form class="user" action = "aitisi-adeias-eidikou-skopou.php" method="post">
                                         <div class="form-group">
                                             <input name="username" type="username" class="form-control form-control-user"
                                                 id="exampleInputUsername" aria-describedby="emailHelp"
-                                                placeholder="Όνομα Χρίστη" required>
+                                                placeholder="Όνομα Χρήστη" required>
                                         </div>
                                         <div class="form-group">
                                             <input name="password" type="password" class="form-control form-control-user"
@@ -66,8 +66,7 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input name="checkbox" type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                <label class="custom-control-label" for="customCheck">Θυμήσου με</label>
                                             </div>
                                         </div>
                                         <button name="submit_btn" type="submit" style="border-radius: 10rem; height:40px; width:100%; margin-bottom:20px" >Είσοδος</button>
@@ -82,7 +81,7 @@
                                             // echo '<script type="text/javascript">alert("' . $msg . '") </script>';
                                             // onclick="javascript:window.history.back(-1);return false;"
                                             // echo "<script> window.history.back(-1); </script>";
-                                            echo '<script type="text/javascript"> window.location.assign("index.php")</script>';
+                                            echo '<script type="text/javascript"> window.location.assign("aitisi-adeias-eidikou-skopou.php")</script>';
                                         }
                                         if(isset($_POST['submit_btn'])){
                                             $username = $_POST['username'];
@@ -105,7 +104,7 @@
                                                     $_SESSION['address'] = $row[7];
                                                     $_SESSION['phone'] = $row[8];
                                                     
-                                                    header('Location:index.php');
+                                                    header('Location:aitisi-adeias-eidikou-skopou.php');
                                                     // header("Location: {$_SERVER['HTTP_REFERER']}");
                                                     exit;
                                                   }

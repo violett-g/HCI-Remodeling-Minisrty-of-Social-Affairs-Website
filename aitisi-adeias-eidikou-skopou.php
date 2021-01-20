@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  require 'config.php';
+session_start();
+require 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,266 +8,394 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Αίτηση - Άδεια Ειδικού Σκοπού</title>
+  <title>Αίτηση Άδειας Eιδικού Σκοπού</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
-<!-- _______________________________________Header_____________________________________________________ -->
-<header class="bg-primary py-2 mb-5">
-    <!--Navigation bar-->
-    <div class="topnav">
-      <img class="logo-img" src="img/logo2.png" width="50" height="50">
-      <div class="logo-name">
-        <p>Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων </p>
-      </div>
-      <div class="search-log">
-        <!--Search box-->
-        <form class="searchbox"> <!-- Page action="search.php" method="post" --> 
-        <div class=wrap>
-          <input type="text" placeholder=" " autocomplete="off">
-          <button class="searchsub" type="submit" value = "Αναζήτηση">Αναζήτηση</button>
-        </div>
-        </form>
-        <!--LOGIN-->
-        <div class="login"> 
-          <!-- Button to open the modal login form -->
-          <?php if(isset($_SESSION['loged'])){ ?>
-            <button name="logout" class="logbutton"><a href="logout.php"> Αποσύνδεση<a></button>
-            <button name="settings" class="logbutton"><a href="settings.php">
-              <span style="color:#0e1577" >
-                <i class="fa fa-user-cog"></i><a>
-                </span>
-            </button>
-          <?php }else{ ?>
-            <button class="logbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i>Σύνδεση</button>
-          <?php } ?>
-          <!-- The Modal -->
-          <div id="id01" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'"
-            class="close" title="Close Modal">&times;</span>
-    
-            <!-- Modal Content -->
-            <form class="modal-content animate" action = "contact.php" method="post">
-              <div class="container">
-                <input name="username" type="text" placeholder="Όνομα Χρήστη " name="uname" required>
-                <input name="password" type="password" placeholder="Κωδικός Πρόσβασης " name="psw" required>
-    
-                <button name="submit_btn" type="submit" style="border-radius: 10rem; height:40px; width:50%; margin-bottom:20px" >Είσοδος</button>
-                <label>
-                  <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-              </div>
-    
-              <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Ακύρωση</button>
-                <span class="psw">Ξεχάσατε τον <a href="#">κωδικό</a> σας?</span>
-                <div class="text-right">
-                  <a class="small" href="registration.php">Δημιουργία λογαριασμού!</a>
-              </div>
-              </div>
-            </form>
-            <?php
-              function phpAlert($msg) {
-                  echo '<script type="text/javascript">alert("' . $msg . '")</script>';
-              }
-              function phpConfAlert() {
-                  echo "<script> window.location.assign('contact.php'); </script>";
-              }
-              if(isset($_POST['submit_btn'])){
-                  $username = $_POST['username'];
-                  $password = $_POST['password'];
-                  $query = "select * from user WHERE username = '$username' AND password='$password'";
-                  $query_run = $con->query($query);
-                  if($query_run->num_rows>0){
-                    $row = mysqli_fetch_row($query_run);
-                    if(!isset($_SESSION['loged'])){
-                      $_SESSION['loged'] = 1;
-                      $_SESSION['username'] = $username;
-                      $_SESSION['password'] = $password;
-                      $afm = $row[0];
-                      $_SESSION['afm'] = $afm;
-                      $role = $row[6];
-                      $_SESSION['role'] = $role;
-                      header('Location:contact.php');
-                    }
-                      phpConfAlert();
-                  }
-                  else{
-                      phpAlert("Aυτός ο λογαριασμός δεν υπάρχει ελέγξτε το όνομα χρήστη και τον κωδικό πρόσβασης και δοκιμάστε ξανά!");
-                  }
-              }
-            ?>
-          </div>
-        </div>
-      </div>
-      
-      <!--LANGUAGE-->
-      <!--MENOU-->
-      <div class="main-menou"> 
-        <ul>
-          <li><a href="../index.php"><i class="fas fa-home"></i></a></li>
-          <li><a href="news.asp">Εργαζόμενοι</a></li>
-          <li><a href="contact.asp">Εργοδότες/Επιχειρήσεις</a></li>
-          <li><a href="about.asp">Εργασία & Ασφάλιση</a></li>
-          <li><a href="about.asp">Πρόνοια</a></li>
-          <li><a href="contact.php">Επικοινωνία</a></li>
-          <li><a href="about.asp">COVID-19</a></li>
-        </ul>
-      </div>
-      
-    </div>
-  </header>
 
+<body class="bg-gradient-primary">
 
-<body id="page-top">
-    
+  <div class="container">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- onsubmit="return validateform()" -->
+        <form class="user" action="aitisi-adeias-eidikou-skopou.php" method="post">
+          <!-- Nested Row within Card Body -->
+          <!-- <div class="row">                 -->
+          <div class="text-center" style="margin-left:auto; margin-right:auto; width:80%">
+            <div class="p-5">
+              <h1 class="h4 text-gray-900 mb-0">Αίτηση Άδειας ειδικού Σκοπού</h1>
 
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                  <!-- Page Heading -->
-                  <h1 class="h3 mb-4 text-gray-800">Αίτηση Άδειας Ειδικού Σκοπού</h1>
-
-                  <!-- Form start -->
-                  <form class="form-style-9">
-                    <ul>
-                    <li>
-                        <input type="text" name="field1" class="field-style field-split align-left" placeholder="Name" />
-                        <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" />
-
-                    </li>
-                    <li>
-                        <input type="text" name="field3" class="field-style field-split align-left" placeholder="Phone" />
-                        <input type="url" name="field4" class="field-style field-split align-right" placeholder="Website" />
-                    </li>
-                    <li>
-                    <input type="text" name="field3" class="field-style field-full align-none" placeholder="Subject" />
-                    </li>
-                    <li>
-                    <textarea name="field5" class="field-style" placeholder="Message"></textarea>
-                    </li>
-                    <li>
-                    <input type="submit" value="Send Message" />
-                    </li>
-                    </ul>
-                  </form>
-                    
-                  <!-- Form end -->
-
-
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input id="business_name" name="business_name" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Επωνυμία εταιρείας">
                 </div>
-                <!-- /.container-fluid -->
+                <div class="col-sm-6">
+                  <input id="business_afm" name="business_afm" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Α.Φ.Μ εταιρείας">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input id="business_address" name="business_address" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Διεύθυνσή εταιρείας">
+                </div>
+                <div class="col-sm-6">
+                  <input id="business_phone" name="business_phone" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Τηλέφωνο εταιρείας">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input id="business_email" name="business_email" type="email" class="form-control form-control-user" id="exampleFirstName" placeholder="Ηλεκτρονική διεύθυνσή εταιρείας">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="onoma" type="text" class="form-control form-control-user" id="onoma" placeholder="Όνομα" required>
+                </div>
+                <div class="col-sm-6">
+                  <input name="epwnumo" type="text" class="form-control form-control-user" id="epwnumo" placeholder="Επώνυμο" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="afm" type="text" class="form-control form-control-user" id="afm" placeholder="Α.Φ.Μ" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="date1" type="text" class="form-control form-control-user" id="date1" placeholder="Ημερομηνία Εκκίνησης Άδειας" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                </div>
+                <div class="col-sm-6">
+                  <input name="date2" type="text" class="form-control form-control-user" id="date2" placeholder="Ημερομηνία Λήξης Άδειας" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input name="paidia" type="number" oninput="onInput()" min="0" class="form-control form-control-user" id="paidia" placeholder="Παιδιά" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <?php if (isset($_POST['paidia'])) {
+                  echo $_POST['paidia'];
+
+                  for ($i = 0; $i < $_POST['paidia']; $i++) { ?> <div class="form-group row">
+                      <div class="col-sm-6">
+                        <input name="date1" type="text" class="form-control form-control-user" id="date1" placeholder="Ημερομηνία Εκκίνησης Άδειας" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                      </div>
+                      <div class="col-sm-6">
+                        <input name="date2" type="text" class="form-control form-control-user" id="date2" placeholder="Ημερομηνία Λήξης Άδειας" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                      </div>
+                      PAIDIA = <?php echo $_POST['paidia'] ?>
+                    </div> <?php }
+                        } ?>
+              </div>
+              <!-- πεδια για στοιχεια παιδιων -->
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="age1" type="number" min="0" class="form-control form-control-user" id="age1" placeholder="Ηλικία Παιδιού">
+                </div>
+                <div class="col-sm-6">
+                  <!-- <input name="school1" type="text" class="form-control form-control-user" id="school1" placeholder="Σχολική Βαθμίδα" required> -->
+                  <input id="school1" name="school1" type="text" class="form-control form-control-user" placeholder="Επιλέξτε Σχολική Βαθμίδα:" list="schoollist1">
+
+                  <datalist id="schoollist1">
+                    <option id="prosxoliki" value="Προσχολική ηλικία">Προσχολική ηλικία</option>
+                    <option id="protovathmia" value="Πρωτοβάθμια εκπαίδευση">Πρωτοβάθμια εκπαίδευση</option>
+                    <option id="deuterovathmia" value="Δευτεροβάθμια εκπαίδευση">Δευτεροβάθμια εκπαίδευση</option>
+                    <option id="eidika_sxoleia" value="Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής">Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής</option>
+                    <option id="allo-AMEA" value="Άλλο (ΑΜΕΑ)">Άλλο (ΑΜΕΑ)</option>
+                  </datalist>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="age2" type="number" min="0" class="form-control form-control-user" id="age2" placeholder="Ηλικία Παιδιού">
+                </div>
+                <div class="col-sm-6">
+                  <!-- <input name="school1" type="text" class="form-control form-control-user" id="school1" placeholder="Σχολική Βαθμίδα" required> -->
+                  <input id="school2" name="school2" type="text" class="form-control form-control-user" placeholder="Επιλέξτε Σχολική Βαθμίδα:" list="schoollist2">
+
+                  <datalist id="schoollist2">
+                    <option id="prosxoliki" value="Προσχολική ηλικία">Προσχολική ηλικία</option>
+                    <option id="protovathmia" value="Πρωτοβάθμια εκπαίδευση">Πρωτοβάθμια εκπαίδευση</option>
+                    <option id="deuterovathmia" value="Δευτεροβάθμια εκπαίδευση">Δευτεροβάθμια εκπαίδευση</option>
+                    <option id="eidika_sxoleia" value="Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής">Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής</option>
+                    <option id="allo-AMEA" value="Άλλο (ΑΜΕΑ)">Άλλο (ΑΜΕΑ)</option>
+                  </datalist>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="age3" type="number" min="0" class="form-control form-control-user" id="age3" placeholder="Ηλικία Παιδιού">
+                </div>
+                <div class="col-sm-6">
+                  <!-- <input name="school1" type="text" class="form-control form-control-user" id="school1" placeholder="Σχολική Βαθμίδα" required> -->
+                  <input id="school3" name="school3" type="text" class="form-control form-control-user" placeholder="Επιλέξτε Σχολική Βαθμίδα:" list="schoollist3">
+
+                  <datalist id="schoollist3">
+                    <option id="prosxoliki" value="Προσχολική ηλικία">Προσχολική ηλικία</option>
+                    <option id="protovathmia" value="Πρωτοβάθμια εκπαίδευση">Πρωτοβάθμια εκπαίδευση</option>
+                    <option id="deuterovathmia" value="Δευτεροβάθμια εκπαίδευση">Δευτεροβάθμια εκπαίδευση</option>
+                    <option id="eidika_sxoleia" value="Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής">Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής</option>
+                    <option id="allo-AMEA" value="Άλλο (ΑΜΕΑ)">Άλλο (ΑΜΕΑ)</option>
+                  </datalist>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="age4" type="number" min="0" class="form-control form-control-user" id="age4" placeholder="Ηλικία Παιδιού">
+                </div>
+                <div class="col-sm-6">
+                  <!-- <input name="school1" type="text" class="form-control form-control-user" id="school1" placeholder="Σχολική Βαθμίδα" required> -->
+                  <input id="school4" name="school4" type="text" class="form-control form-control-user" placeholder="Επιλέξτε Σχολική Βαθμίδα:" list="schoollist4">
+
+                  <datalist id="schoollist4">
+                    <option id="prosxoliki" value="Προσχολική ηλικία">Προσχολική ηλικία</option>
+                    <option id="protovathmia" value="Πρωτοβάθμια εκπαίδευση">Πρωτοβάθμια εκπαίδευση</option>
+                    <option id="deuterovathmia" value="Δευτεροβάθμια εκπαίδευση">Δευτεροβάθμια εκπαίδευση</option>
+                    <option id="eidika_sxoleia" value="Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής">Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής</option>
+                    <option id="allo-AMEA" value="Άλλο (ΑΜΕΑ)">Άλλο (ΑΜΕΑ)</option>
+                  </datalist>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input name="age5" type="number" min="0" class="form-control form-control-user" id="age5" placeholder="Ηλικία Παιδιού">
+                </div>
+                <div class="col-sm-6">
+                  <!-- <input name="school1" type="text" class="form-control form-control-user" id="school1" placeholder="Σχολική Βαθμίδα" required> -->
+                  <input id="school5" name="school5" type="text" class="form-control form-control-user" placeholder="Επιλέξτε Σχολική Βαθμίδα:" list="schoollist5">
+
+                  <datalist id="schoollist5">
+                    <option id="prosxoliki" value="Προσχολική ηλικία">Προσχολική ηλικία</option>
+                    <option id="protovathmia" value="Πρωτοβάθμια εκπαίδευση">Πρωτοβάθμια εκπαίδευση</option>
+                    <option id="deuterovathmia" value="Δευτεροβάθμια εκπαίδευση">Δευτεροβάθμια εκπαίδευση</option>
+                    <option id="eidika_sxoleia" value="Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής">Eιδικά σχολεία / σχολικές μονάδες ειδικής αγωγής</option>
+                    <option id="allo-AMEA" value="Άλλο (ΑΜΕΑ)">Άλλο (ΑΜΕΑ)</option>
+                  </datalist>
+                </div>
+              </div>
+              <!-- τελος πεδιων για στοιχεια παιδιων -->
 
             </div>
-            <!-- End of Main Content -->
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer class="">
-        <div class="foot-container">
-            <div class="child1">
-                <span style="font-size: 48px; color: #3b5998">
-                  <i class="fab fa-facebook-square"></i>
-                </span>
-                <span style="font-size: 48px; color: #00acee ">
-                  <i class="fab fa-twitter-square"></i>
-                </span>
-            </div>
-            <div class="child2"> Όροι Χρήσης</div>
-            <div class="child2">Χάρτης Πλοήγησης </div>
-            <div class="child2">Ιδιωτικό Απόρρητο</div>
-            <div class="child2">
-                <p class="m-0 text-center text-black">Copyright &copy;2021</p>
-            </div>
-            <div class="child5">
-                <span style="font-size: 48px; color: #0e1577; ">
-                  <i class="fas fa-universal-access"></i>
-                </span>
-            </div>
+          </div>
+          <div class="text-center">
+            <button style=" width: 50%; margin-left: auto; margin-right:auto; margin-top:0" name="submit_btn" type="submit" class="btn btn-primary btn-user btn-block">Υποβολή Αίτησης<a href="profile-settings.php"></a></button>
+            <hr>
+            <a style=" margin-bottom: 0.75rem;;" class="small" href="adeia-eidikou-skopou.php">Ακύρωση και Επιστροφή στην προηγούμενη σελίδα<br><br></a>
+          </div>
+        </form>
+        <?php
+        function phpAlert($msg)
+        {
+          echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+        }
+        function phpConfAlert($msg)
+        {
+          echo '<script type="text/javascript">alert("' . $msg . '") </script>';
+          echo '<script type="text/javascript"> window.location.href = "index.php"</script>';
+        }        
+        function phpSuccessAlert($msg)
+        {
+          echo '<script type="text/javascript">alert("' . $msg . '") </script>';
+          echo '<script type="text/javascript"> window.location.href = "employee_personal_settings.php"</script>';
+        }
+        if (isset($_POST['submit_btn'])) {
 
-        </div>
-        <!-- /.container -->
-    </footer>
+          if ($_SESSION['role'] == "Εργαζόμενος") {
 
-    <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-  <script>
-    // Get the modal
-    var modal = document.getElementById('id01');
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-
-    //for under-bar
-    $("#under-bar").hide();
-    <?php
-    if(isset($_SESSION['loged'])){?>
-      $("#under-bar").show();
-    <?php
-    }
-    else{?>
-      $("#under-bar").hide();
-    <?php
-    }
-    ?>
-
-    $('.banner-dismiss').click(function() {
-      $('.covid-banner').css('display', 'none');
-      localStorage.bannerClosed = 'true';
-    });
-        
-</script>
+            $name = $_POST['onoma']; //read input
+            $surname = $_POST['epwnumo'];
+            $afm = $_POST['afm'];
+            $start_date = $_POST['date1'];
+            $end_date = $_POST['date2'];
+            $kids = $_POST['paidia'];
 
 
 
-    <script>
-      var acc = document.getElementsByClassName("accordion-custom");
-      var i;
+            $afm = $_SESSION['afm'];
+            $query = "select * from workplaces WHERE employee_afm = '$afm'";
+            $query_run = $con->query($query);
+            if ($query_run->num_rows > 0) {
+              $row = mysqli_fetch_row($query_run);
+              $business_afm = $row[0];
+              $_SESSION['business_afm'] = $row[0];
+            }
+            $query = "select * from business WHERE business_afm = business_afm";
+            $query_run = $con->query($query);
+            if ($query_run->num_rows > 0) {
+              $row = mysqli_fetch_row($query_run);
+              $_SESSION['business_name'] = $row[0];
+            }
 
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-          } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
+
+            if (is_numeric($afm)) { //check correctness of afm
+              if (strlen((string)$afm) == 9) {
+                $query = "insert into permissions(employee_afm,employee_name,employee_surname,business_afm,type,start_date,end_date,kids)
+                values('$afm','$name','$surname', '$business_afm', 'ΑΔΕΙΑ ΕΙΔΙΚΗΣ ΚΑΤΑΣΤΑΣΗΣ', '$start_date', '$end_date', '$kids' )";
+                  $query_run = $con->query($query);
+                  if ($query_run) {
+                    phpSuccessAlert (" ΑΠΟΚΤΗΣΑΤΕ ΤΗΝ ΑΔΕΙΑ ΣΑΣ, ΔΕΙΤΕ ΤΟ ΑΝΑΝΕΩΜΕΝΟ ΠΡΟΦΙΛ");
+                  
+                  } else {
+                  phpAlert( 'FAIL');
+                  }
+                } else {
+                  phpAlert("Το Α.Φ.Μ πρέπει να αποτελείται από 9 αριθμητικά ψηφιά");
+                  }
+                }
           }
-        });
+              else {
+                phpConfAlert("Μόνο δηλωμένοι εργαζόμενοι μπορούν να πάρουν άδεια!");
+                header('Location:adeia-eidikou-skopou.php');
+                exit;
+              }
+        } //end of isset button
+        ?>
+      </div>
+      <!--card body-->
+    </div>
+
+  </div>
+  <!--container-->
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.js"></script>
+  <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+  <!-- changes by orestis-->
+  <script>
+    $("#business_afm").hide();
+    $("#business_name").hide();
+    $("#business_address").hide();
+    $("#business_phone").hide();
+    $("#business_email").hide();
+    $('#age1').hide();
+    $('#age2').hide();
+    $('#age3').hide();
+    $('#age4').hide();
+    $('#age5').hide();
+    $('#school1').hide();
+    $('#school2').hide();
+    $('#school3').hide();
+    $('#school4').hide();
+    $('#school5').hide();
+
+    function onInput() {
+      var val = document.getElementById("paidia").value;
+      if (val == 1) {
+        console.log(val);
+        $('#age1').show()
+        $('#school1').show()
+        $('#age2').hide();
+        $('#age3').hide();
+        $('#age4').hide();
+        $('#age5').hide();
+        $('#school2').hide();
+        $('#school3').hide();
+        $('#school4').hide();
+        $('#school5').hide();
+
+      } else if (val == 2) {
+        console.log(val);
+        $('#age1').show()
+        $('#school1').show()
+        $('#age2').show()
+        $('#school2').show()
+        $('#age3').hide();
+        $('#age4').hide();
+        $('#age5').hide();
+        $('#school3').hide();
+        $('#school4').hide();
+        $('#school5').hide();
+
+      } else if (val == 3) {
+        console.log(val);
+        $('#age1').show()
+        $('#school1').show()
+        $('#age2').show()
+        $('#school2').show()
+        $('#age3').show()
+        $('#school3').show()
+        $('#age4').hide();
+        $('#age5').hide();
+        $('#school4').hide();
+        $('#school5').hide();
+
+      } else if (val == 4) {
+        console.log(val);
+        $('#age1').show()
+        $('#school1').show()
+        $('#age2').show()
+        $('#school2').show()
+        $('#age3').show()
+        $('#school3').show()
+        $('#age4').show()
+        $('#school4').show()
+        $('#age5').hide();
+        $('#school5').hide();
+
+      } else if (val == 5) {
+        console.log(val);
+        $('#age1').show()
+        $('#school1').show()
+        $('#age2').show()
+        $('#school2').show()
+        $('#age3').show()
+        $('#school3').show()
+        $('#age4').show()
+        $('#school4').show()
+        $('#age5').show()
+        $('#school5').show()
+
+      } else if (val > 5) {
+        console.log(val);
+        $('#age1').show()
+        $('#school1').show()
+        $('#age2').show()
+        $('#school2').show()
+        $('#age3').show()
+        $('#school3').show()
+        $('#age4').show()
+        $('#school4').show()
+        $('#age5').show()
+        $('#school5').show()
+
+      } else {
+        $("#business_afm").hide();
+        $("#business_name").hide();
+        $("#business_address").hide();
+        $("#business_phone").hide();
+        $("#business_email").hide();
+        $('#age1').hide();
+        $('#age2').hide();
+        $('#age3').hide();
+        $('#age4').hide();
+        $('#age5').hide();
+        $('#school1').hide();
+        $('#school2').hide();
+        $('#school3').hide();
+        $('#school4').hide();
+        $('#school5').hide();
       }
-    </script>
+    }
+  </script>
 
 
 </body>
