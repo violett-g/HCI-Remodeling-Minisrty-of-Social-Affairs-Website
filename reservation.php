@@ -164,7 +164,7 @@ session_start();
                                             required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input name="hour" type="time"  min="09:00" max="13:00" step="1500"  class="form-control form-control-user" id="exampleafm"
+                                        <input name="hour" type="text"  min="09:00" max="13:00" step="1500"  class="form-control form-control-user" id="exampleafm"
                                             placeholder="Ώρα" list="hourlist" required>
 
                                             <datalist id="hourlist">

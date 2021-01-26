@@ -257,16 +257,8 @@
     </div> <!--container-->
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <script type="text/javascript"></script>
 
     <script>
         $("#business_afm").hide();
@@ -288,6 +280,9 @@
             else if(val == "Εργαζόμενος"){
                 $("#business_afm").show();
                 $("#business_name").show();
+                // $("#business_address").show();
+                // $("#business_phone").show();
+                // $("#business_email").show();
             }
             else {
                 $("#business_afm").hide();
@@ -296,6 +291,15 @@
                 $("#business_phone").hide();
                 $("#business_email").hide();
             }
+
+            // for (var i = 0; i < opts.length; i++) {
+            // if (opts[i].value === val) {
+            //     // An item was selected from the list!
+            //     // yourCallbackHere()
+            //     alert(opts[i].value);
+            //     break;
+            // }
+            // }
         }
 
 
